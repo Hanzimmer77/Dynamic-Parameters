@@ -1,0 +1,41 @@
+﻿<Window x:Class="dynamic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="Kinect Data Visualization" Height="800" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Kinect Video Feed -->
+        <Image x:Name="KinectVideo" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Stretch="Uniform" Margin="10" />
+
+        <!-- Velocity Plot -->
+        <oxy:PlotView x:Name="VelocityPlot" Grid.Column="1" Grid.Row="0" Margin="10,165,10,9" Grid.RowSpan="2" RenderTransformOrigin="0.506,0.467" />
+
+        <!-- Swing Plot -->
+        <oxy:PlotView x:Name="SwingPlotView" Grid.Column="0" Grid.Row="2" Margin="10" />
+
+        <!-- Stride Plot -->
+        <oxy:PlotView x:Name="StridePlot" Grid.Column="1" Grid.Row="2" Margin="10" />
+
+        <!-- Text Blocks for displaying velocity, swing arc length, and stride length -->
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="10">
+            <TextBlock x:Name="VelocityText" Text="Velocity: " FontSize="16" Margin="5" />
+            <TextBlock x:Name="ArcText" Text="Max Swing Arc Length: " FontSize="16" Margin="5" />
+            <TextBlock x:Name="StrideText" Text="Stride Length: " FontSize="16" Margin="5" />
+            <TextBlock x:Name="ActivityText" Text="Activity: " FontSize="16" Margin="5" />
+            <Button x:Name="ShowSwingDataButton" Content="Show Swing Data" Click="ShowSwingDataButton_Click" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>
